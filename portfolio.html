@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaishak T Nair — Portfolio</title>
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+  body { margin: 0; background: #F6F3EC; }
+  a { text-decoration-color: currentColor; text-underline-offset: 3px; opacity: 0.85; transition: opacity 0.2s ease; }
+  a:hover { opacity: 1; }
+  .vn-h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 28px; letter-spacing: -0.01em; color: #1C1B18; margin: 0; }
+  .vn-kicker { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 10px 0; }
+  .vn-role { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 19px; color: #1C1B18; margin: 0; }
+  .vn-meta { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #6E6A60; }
+  .vn-body { font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15.5px; line-height: 1.7; color: #33312B; }
+  .vn-list { margin: 10px 0 0 0; padding: 0; list-style: none; }
+  .vn-list li { position: relative; padding-left: 20px; margin-bottom: 8px; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 14.5px; line-height: 1.6; color: #33312B; }
+  .vn-list li::before { content: "–"; position: absolute; left: 0; color: #21453D; }
+  .vn-pill { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; border-radius: 4px; padding: 4px 10px; margin: 0 6px 6px 0; border: 1px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .vn-pill:hover { transform: translateY(-2px); box-shadow: 0 3px 10px rgba(28,27,24,0.10); }
+  .vn-pill-teal { color: #1F4A41; background: #E1EEE9; border-color: #BFDCD1; }
+  .vn-pill-sand { color: #6B4E23; background: #F3EAD8; border-color: #E3D2AC; }
+  .vn-pill-clay { color: #7A3B22; background: #F6E4DA; border-color: #E7C3AE; }
+  .vn-divider { border: none; border-top: 1px solid #E1DBCC; margin: 0; }
+  .vn-band { width: 100%; box-sizing: border-box; display: flex; justify-content: center; }
+  .vn-wrap { width: 100%; max-width: 860px; box-sizing: border-box; }
+  .vn-icon-head { display: flex; align-items: center; gap: 9px; margin-bottom: 9px; }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  .vn-chart-path { transition: stroke-dashoffset 1.9s ease 0.15s; }
+  .reveal.is-visible.vn-chart-path { stroke-dashoffset: 0 !important; }
+
+  .vn-in { opacity: 0; transform: translateY(14px); animation: vnFadeUp 0.8s ease forwards; }
+  @keyframes vnFadeUp { to { opacity: 1; transform: none; } }
+
+  @keyframes vnPulse {
+    0% { box-shadow: 0 0 0 0 rgba(63,166,122,0.55); }
+    70% { box-shadow: 0 0 0 9px rgba(63,166,122,0); }
+    100% { box-shadow: 0 0 0 0 rgba(63,166,122,0); }
+  }
+  .vn-live-dot { width: 8px; height: 8px; border-radius: 50%; background: #3FA67A; display: inline-block; animation: vnPulse 2.1s infinite; flex-shrink: 0; }
+  .vn-shipped-dot { width: 7px; height: 7px; border-radius: 50%; background: #9B9585; display: inline-block; flex-shrink: 0; }
+
+  .vn-stat-num { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 24px; color: #1C1B18; }
+  .vn-stat { background: #FBFAF6; border: 1px solid #E5E0D2; border-radius: 10px; padding: 18px 18px 16px 18px; display: flex; flex-direction: column; gap: 8px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .vn-stat:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(28,27,24,0.08); }
+
+  .vn-marquee-mask { overflow: hidden; width: 100%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .vn-marquee { display: flex; gap: 12px; width: max-content; animation: vnMarquee 28s linear infinite; }
+  @keyframes vnMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .vn-chip { background: #FBFAF6; border: 1px solid #E5E0D2; border-radius: 20px; padding: 8px 16px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #33312B; white-space: nowrap; }
+
+  .vn-chart-card { background: #12211C; border-radius: 12px; padding: 22px 22px 16px 22px; }
+
+  .vn-pods { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; max-width: 360px; }
+  .vn-pod { width: 100%; aspect-ratio: 1; border-radius: 4px; background: #3FA67A; animation: vnPodPulse 2.6s ease-in-out infinite; }
+  .vn-pod-warn { background: #E8B84B; }
+  @keyframes vnPodPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+  .vn-bar-track { height: 6px; background: #E1DBCC; border-radius: 3px; overflow: hidden; }
+  .vn-bar { display: block; height: 100%; width: 0%; border-radius: 3px; background: #21453D; transition: width 1.2s cubic-bezier(.2,.8,.2,1); }
+
+  /* career progression */
+  .vn-ladder-node { display: flex; align-items: center; gap: 14px; }
+  .vn-ladder-dot { width: 30px; height: 30px; border-radius: 50%; background: #21453D; color: #FBFAF6; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; flex-shrink: 0; }
+  .vn-ladder-line { width: 2px; height: 26px; background: #D9D2C0; margin-left: 15px; }
+  .vn-arrow { color: #21453D; font-family: 'IBM Plex Mono', monospace; }
+
+  .vn-stage-grid { display: flex; gap: 32px; align-items: flex-start; }
+  .vn-dash { position: sticky; top: 24px; width: 200px; flex-shrink: 0; background: #FBFAF6; border: 1px solid #E5E0D2; border-radius: 12px; padding: 20px 18px; display: flex; flex-direction: column; gap: 14px; }
+  .vn-dash-row div:first-child { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: #9B9585; margin-bottom: 3px; }
+  .vn-dash-row div:last-child { font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 13.5px; color: #1C1B18; font-weight: 500; }
+  .vn-stage { flex: 1; min-width: 0; border-radius: 10px; padding: 20px 20px 24px 20px; margin-bottom: 6px; transition: background 0.4s ease; }
+  .vn-stage.is-active { background: #EFEBDE; }
+  .vn-stage-flow { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6A60; line-height: 1.9; margin: 10px 0 4px 0; }
+  .vn-stage-num { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: #21453D; color: #FBFAF6; font-family: 'IBM Plex Mono', monospace; font-size: 11px; margin-right: 8px; flex-shrink: 0; }
+
+  .vn-quote { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: 24px; line-height: 1.55; color: #1C1B18; }
+
+</style>
+</head>
+<body>
+<div style="width: 100%; box-sizing: border-box; background: #F6F3EC; display: flex; flex-direction: column; align-items: center;">
+
+  <!-- HERO BAND -->
+  <div class="vn-band" style="background: #21453D;">
+    <div class="vn-wrap" style="padding: 88px 32px 68px 32px; display: flex; flex-direction: column; gap: 20px;">
+      <div class="vn-in" style="animation-delay: 0.02s; width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,0.14); display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', Georgia, serif; font-size: 20px; color: #F6F3EC; margin-bottom: 4px;">VN</div>
+      <div class="vn-in" style="animation-delay: 0.1s; display: flex; align-items: center; gap: 10px;">
+        <span class="vn-live-dot"></span>
+        <span class="vn-kicker" style="color: #BFE0D4; margin: 0;">All systems operational — open to new roles</span>
+      </div>
+      <h1 class="vn-in" style="animation-delay: 0.16s; margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 58px; line-height: 1.05; letter-spacing: -0.015em; color: #FBFAF6;">Vaishak T Nair</h1>
+      <p class="vn-in vn-body" style="animation-delay: 0.24s; max-width: 620px; font-size: 17px; margin: 4px 0 0 0; color: #E4EDE8;">Site Reliability Engineer with 3+ years (6+ in IT) architecting and owning cloud infrastructure end-to-end for fintech, healthcare SaaS, and enterprise GitOps platforms — from zero-downtime multi-region migrations to leading a team of four SREs.</p>
+      <div class="vn-in" style="animation-delay: 0.32s; display: flex; flex-wrap: wrap; gap: 22px; margin-top: 4px;">
+        <a href="tel:+919847281873" style="text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #DCEDE5;">+91 98472 81873</a>
+        <a href="mailto:vaishaktnair@gmail.com" style="text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #DCEDE5;">vaishaktnair@gmail.com</a>
+        <a href="https://linkedin.com/in/vaishak-t-nair-56278b222" style="text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #DCEDE5;">linkedin.com/in/vaishak-t-nair</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CURRENTLY snapshot -->
+  <div class="vn-band reveal">
+    <div class="vn-wrap" style="padding: 40px 32px 8px 32px;">
+      <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+        <span class="vn-kicker" style="color: #21453D; margin: 0;">Currently</span>
+        <span class="vn-body" style="font-weight: 600;">SRE &amp; Customer Success Engineering, One2N Consulting</span>
+        <span class="vn-live-dot"></span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+        <div class="vn-stat">
+          <div class="vn-stat-num" style="font-size: 30px;"><span data-final="4" data-suffix="">0</span></div>
+          <div class="vn-meta">DevOps/SRE engineers led</div>
+        </div>
+        <div class="vn-stat">
+          <div class="vn-stat-num" style="font-size: 30px;"><span data-final="24" data-suffix="">0</span></div>
+          <div class="vn-meta">enterprise customers</div>
+        </div>
+        <div class="vn-stat">
+          <div class="vn-stat-num" style="font-size: 30px;"><span data-final="60" data-suffix="+">0+</span></div>
+          <div class="vn-meta">microservices in production</div>
+        </div>
+        <div class="vn-stat">
+          <div class="vn-stat-num" style="font-size: 30px;"><span data-final="20" data-suffix="+">0+</span></div>
+          <div class="vn-meta">P0/P1 incidents resolved in SLA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- achievement teaser marquee -->
+  <div class="vn-band reveal">
+    <div class="vn-wrap" style="padding: 20px 32px 30px 32px;">
+      <div class="vn-marquee-mask">
+        <div class="vn-marquee">
+          <span class="vn-chip">2019 → software engineer</span>
+          <span class="vn-chip">2026 → leading a team of 4 SREs</span>
+          <span class="vn-chip">1 application → 60+ microservices</span>
+          <span class="vn-chip">1 region → 4 global regions</span>
+          <span class="vn-chip">code → customers</span>
+          <span class="vn-chip">24 enterprise customers</span>
+          <span class="vn-chip">RBI audit compliance cleared</span>
+          <span class="vn-chip">2019 → software engineer</span>
+          <span class="vn-chip">2026 → leading a team of 4 SREs</span>
+          <span class="vn-chip">1 application → 60+ microservices</span>
+          <span class="vn-chip">1 region → 4 global regions</span>
+          <span class="vn-chip">code → customers</span>
+          <span class="vn-chip">24 enterprise customers</span>
+          <span class="vn-chip">RBI audit compliance cleared</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CAREER PROGRESSION ============ -->
+  <div class="vn-band" style="background: #EDEFE4;">
+    <div class="vn-wrap reveal" style="padding: 56px 32px 8px 32px;">
+      <div class="vn-kicker" style="color: #21453D;">Current role first · career origin last</div>
+      <h2 class="vn-h2">Experience &amp; career progression</h2>
+      <p class="vn-body" style="margin: 10px 0 0 0; max-width: 640px;">Six years, six shifts in scope — from writing backend code to leading SRE for a 24-customer enterprise platform. Most recent first; scroll down for how I got here.</p>
+    </div>
+  </div>
+
+  <!-- compact stage ladder -->
+  <div class="vn-band reveal" style="background: #EDEFE4;">
+    <div class="vn-wrap" style="padding: 30px 32px 44px 32px; display: flex; flex-direction: column;">
+      <div class="vn-ladder-node"><div class="vn-ladder-dot">6</div><div class="vn-body" style="font-weight: 600;">2026–Present · Leadership</div><span class="vn-meta">— team, customers, technical direction</span></div>
+      <div class="vn-ladder-line"></div>
+      <div class="vn-ladder-node"><div class="vn-ladder-dot">5</div><div class="vn-body" style="font-weight: 600;">2025–26 · System ownership</div><span class="vn-meta">— multi-region, cost, security</span></div>
+      <div class="vn-ladder-line"></div>
+      <div class="vn-ladder-node"><div class="vn-ladder-dot">4</div><div class="vn-body" style="font-weight: 600;">2024–25 · Reliability</div><span class="vn-meta">— observability, incidents</span></div>
+      <div class="vn-ladder-line"></div>
+      <div class="vn-ladder-node"><div class="vn-ladder-dot">3</div><div class="vn-body" style="font-weight: 600;">2024 · Delivery</div><span class="vn-meta">— automation, EKS, blue-green</span></div>
+      <div class="vn-ladder-line"></div>
+      <div class="vn-ladder-node"><div class="vn-ladder-dot">2</div><div class="vn-body" style="font-weight: 600;">2023 · Infrastructure</div><span class="vn-meta">— Kubernetes, CI/CD, IaC</span></div>
+      <div class="vn-ladder-line"></div>
+      <div class="vn-ladder-node"><div class="vn-ladder-dot">1</div><div class="vn-body" style="font-weight: 600;">2019 · Code</div><span class="vn-meta">— backend engineering, where it started</span></div>
+    </div>
+  </div>
+
+  <!-- sticky scope dashboard + stage cards -->
+  <div class="vn-band" style="background: #EDEFE4;">
+    <div class="vn-wrap" style="padding: 0 32px 40px 32px;">
+      <div class="vn-stage-grid">
+
+        <div class="vn-dash">
+          <div class="vn-kicker" style="color: #21453D; margin-bottom: 2px;">Snapshot</div>
+          <div class="vn-dash-row"><div>Years</div><div data-dash="years">May 2026 – Present</div></div>
+          <div class="vn-dash-row"><div>Role scope</div><div data-dash="role">SRE &amp; Customer Success Engineering</div></div>
+          <div class="vn-dash-row"><div>Services</div><div data-dash="services">Enterprise CD/GitOps platform</div></div>
+          <div class="vn-dash-row"><div>Regions</div><div data-dash="regions">Multi-cloud (EKS/GKE/AKS)</div></div>
+          <div class="vn-dash-row"><div>Ownership</div><div data-dash="ownership">+ Customers + Team + Direction</div></div>
+          <div class="vn-dash-row"><div>Team</div><div data-dash="team">Leading 4 engineers</div></div>
+          <div class="vn-dash-row"><div>Customers</div><div data-dash="customers">24 enterprise customers</div></div>
+        </div>
+
+        <div style="flex: 1; min-width: 0; display: flex; flex-direction: column;">
+
+          <!-- STAGE 6 -->
+          <div class="vn-stage reveal" data-stage-track data-years="May 2026 – Present" data-role="SRE &amp; Customer Success Engineering" data-services="Enterprise CD/GitOps platform" data-regions="Multi-cloud (EKS/GKE/AKS)" data-ownership="+ Customers + Team + Direction" data-team="Leading 4 engineers" data-customers="24 enterprise customers">
+            <div style="display: flex; align-items: center; margin-bottom: 4px;"><span class="vn-stage-num">6</span><span class="vn-kicker" style="margin: 0; color: #21453D;">Technical Leadership</span></div>
+            <div class="vn-role">One2N Consulting</div>
+            <div class="vn-meta">Pune &nbsp;·&nbsp; Project Devtron &nbsp;·&nbsp; May 2026 – Present &nbsp;·&nbsp; <span class="vn-live-dot" style="vertical-align: middle;"></span> <span style="color: #3FA67A;">live</span></div>
+            <p class="vn-body" style="margin: 10px 0 0 0;">Scope expanded from managing systems to managing systems + incidents + customers + engineers + technical direction.</p>
+            <div class="vn-stage-flow">me → my systems → my customers → <strong style="color: #21453D;">my team</strong> → technical direction</div>
+            <ul class="vn-list">
+              <li>Lead and manage a team of 4 DevOps/SRE engineers — own technical reviews and escalations</li>
+              <li>Own customer success from POC through onboarding — support piloting customers, validate production readiness</li>
+              <li>Execute zero-downtime Kubernetes upgrades across EKS, GKE and AKS</li>
+              <li>Establish security/access-control guidelines aligned with RBI audit requirements</li>
+              <li>Operate Victoria Metrics, VictoriaLogs, Fluentbit and Prometheus alerting, integrated with Zenduty</li>
+            </ul>
+            <div style="display: flex; gap: 28px; margin-top: 14px; flex-wrap: wrap;">
+              <div><div class="vn-stat-num"><span data-final="4" data-suffix="">0</span></div><div class="vn-meta">engineers led</div></div>
+              <div><div class="vn-stat-num"><span data-final="24" data-suffix="">0</span></div><div class="vn-meta">enterprise customers</div></div>
+              <div><div class="vn-stat-num"><span data-final="20" data-suffix="+">0+</span></div><div class="vn-meta">P0/P1 resolved in SLA</div></div>
+              <div><div class="vn-stat-num"><span data-final="8" data-suffix="+">0+</span></div><div class="vn-meta">client accounts</div></div>
+            </div>
+            <div class="vn-stage-flow" style="margin-top: 16px;">56 microservices → production onboarding → observability built end-to-end → 6-week rollout → <strong style="color: #21453D;">visibility gaps closed</strong></div>
+          </div>
+<!-- STAGE 5 -->
+          <div class="vn-stage reveal" data-stage-track data-years="Aug 2025 – Apr 2026" data-role="DevOps-SRE, embedded" data-services="60+ microservices" data-regions="4 global regions" data-ownership="+ Cost + Security + Multi-region" data-team="Sole embedded SRE" data-customers="1 platform, healthcare SaaS">
+            <div style="display: flex; align-items: center; margin-bottom: 4px;"><span class="vn-stage-num">5</span><span class="vn-kicker" style="margin: 0; color: #21453D;">End-to-End SRE — the biggest jump</span></div>
+            <div class="vn-role">One2N Consulting</div>
+            <div class="vn-meta">Pune &nbsp;·&nbsp; Project Neurowyzr (healthcare SaaS) &nbsp;·&nbsp; Aug 2025 – Apr 2026</div>
+            <p class="vn-body" style="margin: 10px 0 0 0;">Sole embedded SRE for a 9-month engagement — responsible for infrastructure, reliability, observability, cost, migrations, incidents, developer visibility, and platform portability, end to end.</p>
+            <ul class="vn-list">
+              <li>Rewrote the entire infrastructure stack from scratch in Terraform — environment-segregated layout, separate repositories for dev and production, all hardcoded values removed</li>
+              <li>Migrated 4 environments — 3 production clusters and 1 dev cluster — onto new parallel EKS clusters running upgraded tool and platform versions across the stack</li>
+              <li>Used ArgoCD GitOps blue-green sync to run old and new clusters side by side, validating traffic on the new cluster before cutover</li>
+              <li>Cut over 60+ services per environment via Route53 DNS switchover, with zero customer-facing downtime across the entire 8-month program</li>
+              <li>Designed and built an internal image-tag drift dashboard (Helm-deployed) — giving developers environment-wide visibility into exactly which service versions are running across all environments, without granting them direct cluster or ArgoCD access</li>
+            </ul>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 4px 0;">
+              <div style="background: #FBFAF6; border: 1px solid #E5E0D2; border-radius: 8px; padding: 10px 13px; min-width: 118px;">
+                <div class="vn-meta" style="margin-bottom: 5px;">PROD · cluster 1</div>
+                <div style="display: flex; align-items: center; gap: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6A60;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #9B9585; display: inline-block;"></span>old<span style="color: #21453D;">→</span><span class="vn-live-dot" style="width: 7px; height: 7px;"></span>new</div>
+              </div>
+              <div style="background: #FBFAF6; border: 1px solid #E5E0D2; border-radius: 8px; padding: 10px 13px; min-width: 118px;">
+                <div class="vn-meta" style="margin-bottom: 5px;">PROD · cluster 2</div>
+                <div style="display: flex; align-items: center; gap: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6A60;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #9B9585; display: inline-block;"></span>old<span style="color: #21453D;">→</span><span class="vn-live-dot" style="width: 7px; height: 7px;"></span>new</div>
+              </div>
+              <div style="background: #FBFAF6; border: 1px solid #E5E0D2; border-radius: 8px; padding: 10px 13px; min-width: 118px;">
+                <div class="vn-meta" style="margin-bottom: 5px;">PROD · cluster 3</div>
+                <div style="display: flex; align-items: center; gap: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6A60;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #9B9585; display: inline-block;"></span>old<span style="color: #21453D;">→</span><span class="vn-live-dot" style="width: 7px; height: 7px;"></span>new</div>
+              </div>
+              <div style="background: #FBFAF6; border: 1px solid #E5E0D2; border-radius: 8px; padding: 10px 13px; min-width: 118px;">
+                <div class="vn-meta" style="margin-bottom: 5px;">DEV · cluster</div>
+                <div style="display: flex; align-items: center; gap: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6A60;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #9B9585; display: inline-block;"></span>old<span style="color: #21453D;">→</span><span class="vn-shipped-dot" style="width: 7px; height: 7px;"></span>new</div>
+              </div>
+            </div>
+            <div class="vn-meta" style="margin-bottom: 4px;">4 environments migrated (3 prod + 1 dev) · blue-green cutover · upgraded tool versions</div>
+            <div class="vn-stage-flow">infrastructure was outdated → rewrite in Terraform → parallel EKS clusters, upgraded versions → <strong style="color: #21453D;">ArgoCD blue-green</strong> → Route53 switchover → migrate 60+ services/env → zero customer-facing downtime</div>
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 14px; max-width: 420px;">
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span class="vn-meta">Cloud spend cut, per env</span><span class="vn-meta" style="color: #21453D;">21–23%</span></div>
+                <div class="vn-bar-track"><span class="vn-bar" data-w="23"></span></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span class="vn-meta">Alert noise / false positives</span><span class="vn-meta" style="color: #21453D;">~30% ↓</span></div>
+                <div class="vn-bar-track"><span class="vn-bar" data-w="30"></span></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span class="vn-meta">Deployment failure rate</span><span class="vn-meta" style="color: #21453D;">~20% ↓</span></div>
+                <div class="vn-bar-track"><span class="vn-bar" data-w="20"></span></div>
+              </div>
+            </div>
+            <div style="margin-top: 14px;">
+              <span class="vn-pill vn-pill-teal">Observability — SigNoz + OTel</span>
+              <span class="vn-pill vn-pill-sand">Cost — Karpenter, NAT redesign</span>
+              <span class="vn-pill vn-pill-clay">DevEx — image-tag drift dashboard</span>
+              <span class="vn-pill vn-pill-teal">Incidents — 5+ P0/P1, documented RCAs</span>
+              <span class="vn-pill vn-pill-sand">Portability — Viettel IDC K8s</span>
+            </div>
+          </div>
+
+          <!-- STAGE 4 -->
+          <div class="vn-stage reveal" data-stage-track data-years="Dec 2024 – Jul 2025" data-role="DevOps-SRE" data-services="10+ microservices" data-regions="AWS, single region" data-ownership="+ Observability + Incidents" data-team="Individual contributor" data-customers="Internal engineering teams">
+            <div style="display: flex; align-items: center; margin-bottom: 4px;"><span class="vn-stage-num">4</span><span class="vn-kicker" style="margin: 0; color: #21453D;">SRE Ownership</span></div>
+            <div class="vn-role">One2N Consulting</div>
+            <div class="vn-meta">Pune &nbsp;·&nbsp; Project Kulu (fintech payments) &nbsp;·&nbsp; Dec 2024 – Jul 2025</div>
+            <p class="vn-body" style="margin: 10px 0 0 0;">The story changes here — no longer just responsible for deployment, but for reliability.</p>
+            <ul class="vn-list">
+              <li>Built the observability foundation from the ground up — Datadog alerting and synthetic monitoring across AWS services, deployed via Helm/CI-CD with alert rules defined as Terraform code</li>
+              <li>Implemented OpenTelemetry-based log/trace correlation, fixing a blind spot where 4xx/5xx alerts silently failed to fire</li>
+              <li>Coordinated production deployments across 10+ microservices — owning environment config, DB migrations, and release readiness</li>
+              <li>Resolved 200+ infrastructure/support requests over 8 months</li>
+              <li>Rolled out SonarQube quality gates across the repository fleet</li>
+            </ul>
+            <div><span class="vn-pill vn-pill-clay">Datadog</span><span class="vn-pill vn-pill-clay">OpenTelemetry</span><span class="vn-pill vn-pill-sand">Terraform</span><span class="vn-pill vn-pill-sand">AWS</span><span class="vn-pill vn-pill-clay">SonarQube</span></div>
+            <div class="vn-stage-flow">deployment → observability → alerting → incident response → release readiness → <strong style="color: #21453D;">production reliability</strong></div>
+            <div style="display: flex; gap: 28px; margin-top: 14px; flex-wrap: wrap;">
+              <div><div class="vn-stat-num"><span data-final="10" data-suffix="+">0+</span></div><div class="vn-meta">microservices coordinated</div></div>
+              <div><div class="vn-stat-num"><span data-final="200" data-suffix="+">0+</span></div><div class="vn-meta">support requests resolved</div></div>
+            </div>
+          </div>
+
+          <!-- STAGE 3 -->
+          <div class="vn-stage reveal" data-stage-track data-years="Jan–Sep 2024" data-role="DevOps Engineer" data-services="Multiple client apps" data-regions="AWS, single region" data-ownership="+ Delivery automation" data-team="Individual contributor" data-customers="Internal engineering teams">
+            <div style="display: flex; align-items: center; margin-bottom: 4px;"><span class="vn-stage-num">3</span><span class="vn-kicker" style="margin: 0; color: #21453D;">Cloud DevOps &amp; Automation</span></div>
+            <div class="vn-role">Datavizz</div>
+            <div class="vn-meta">Ahmedabad, Gujarat &nbsp;·&nbsp; Project Docdok &nbsp;·&nbsp; Jan 2024 – Sep 2024</div>
+            <p class="vn-body" style="margin: 10px 0 0 0;">Now automating the software delivery lifecycle — deploying applications reliably and repeatably.</p>
+            <ul class="vn-list">
+              <li>Migrated the CI pipeline from Jenkins to GitHub Actions, automating Docker image builds</li>
+              <li>Delivered a zero-downtime production rollout using a blue-green deployment strategy, with SSO and RBAC</li>
+              <li>Optimized a separate client's CI pipeline in AWS CodePipeline, packaged deployments as Helm charts, deployed to AWS EKS</li>
+              <li>Set up and managed dev/test environments</li>
+            </ul>
+            <div><span class="vn-pill vn-pill-sand">Jenkins</span><span class="vn-pill vn-pill-sand">GitHub Actions</span><span class="vn-pill vn-pill-teal">Docker</span><span class="vn-pill vn-pill-teal">Helm</span><span class="vn-pill vn-pill-teal">AWS EKS</span></div>
+            <div class="vn-stage-flow">Jenkins → GitHub Actions → Docker → Helm → AWS EKS</div>
+            <div style="max-width: 320px; margin-top: 14px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span class="vn-meta">CI build time cut</span><span class="vn-meta" style="color: #21453D;">30%</span></div>
+              <div class="vn-bar-track"><span class="vn-bar" data-w="30"></span></div>
+            </div>
+          </div>
+
+          <!-- STAGE 2 -->
+          <div class="vn-stage reveal" data-stage-track data-years="2023" data-role="DevOps Engineer" data-services="On-prem cluster" data-regions="Single environment" data-ownership="Code + Build + Deploy" data-team="Individual contributor" data-customers="Internal engineering teams">
+            <div style="display: flex; align-items: center; margin-bottom: 4px;"><span class="vn-stage-num">2</span><span class="vn-kicker" style="margin: 0; color: #21453D;">DevOps Engineering</span></div>
+            <div class="vn-role">LSN Software Services Pvt Ltd</div>
+            <div class="vn-meta">Hyderabad, Telangana &nbsp;·&nbsp; Equitybrix &amp; Intellasphere &nbsp;·&nbsp; Apr 2023 – Dec 2023</div>
+            <p class="vn-body" style="margin: 10px 0 0 0;">Moved from building software to building the systems that deliver and operate it.</p>
+            <ul class="vn-list">
+              <li>Led the design and setup of an on-prem Kubernetes cluster</li>
+              <li>Deployed HashiCorp Vault for secure secrets management</li>
+              <li>Built Jenkins CI pipelines with ArgoCD for CD</li>
+              <li>Deployed Prometheus/Grafana monitoring and Terraform-managed database infrastructure</li>
+            </ul>
+            <div><span class="vn-pill vn-pill-teal">Kubernetes</span><span class="vn-pill vn-pill-sand">Jenkins</span><span class="vn-pill vn-pill-teal">ArgoCD</span><span class="vn-pill vn-pill-clay">Prometheus</span><span class="vn-pill vn-pill-clay">Grafana</span><span class="vn-pill vn-pill-sand">Terraform</span><span class="vn-pill vn-pill-teal">HashiCorp Vault</span></div>
+            <div class="vn-stage-flow"><span class="vn-arrow">application</span> → <span class="vn-arrow">build</span> → <span class="vn-arrow">deploy</span> → <span class="vn-arrow">run</span></div>
+          </div>
+
+          <!-- STAGE 1 -->
+          <div class="vn-stage reveal" data-stage-track data-years="2019–2021" data-role="Software Engineer" data-services="1 application" data-regions="Single environment" data-ownership="Code" data-team="Individual contributor" data-customers="Internal engineering teams">
+            <div style="display: flex; align-items: center; margin-bottom: 4px;"><span class="vn-stage-num">1</span><span class="vn-kicker" style="margin: 0; color: #21453D;">Software Engineering</span></div>
+            <div class="vn-role">Inapp Information Technologies</div>
+            <div class="vn-meta">Trivandrum, Kerala &nbsp;·&nbsp; Project VSSC &nbsp;·&nbsp; Sep 2019 – Dec 2021</div>
+            <p class="vn-body" style="margin: 10px 0 0 0;">Backend development on the VSSC (Vikram Sarabhai Space Centre) project — this is where the story starts: building software.</p>
+            <div><span class="vn-pill vn-pill-teal">Java</span><span class="vn-pill vn-pill-teal">Spring Boot</span><span class="vn-pill vn-pill-sand">JMeter</span><span class="vn-pill vn-pill-sand">Katalon</span></div>
+            <div class="vn-stage-flow"><span class="vn-arrow">code</span> → <span class="vn-arrow">applications</span> → <em>how does this run in production?</em></div>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCOPE OF OWNERSHIP — concentric rings -->
+  <div class="vn-band reveal" style="background: #E7EFEA;">
+    <div class="vn-wrap" style="padding: 52px 32px; display: flex; flex-direction: column; gap: 22px;">
+      <div>
+        <div class="vn-kicker" style="color: #21453D;">Scope of ownership</div>
+        <h2 class="vn-h2">What "responsibility" kept adding up to</h2>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
+        <svg viewBox="0 0 320 320" width="260" height="260" style="flex-shrink: 0;">
+          <circle cx="160" cy="160" r="28" fill="none" stroke="#21453D" stroke-width="2.5" class="reveal vn-chart-path" style="stroke-dasharray:176; stroke-dashoffset:176; transition-delay:0s;"></circle>
+          <circle cx="160" cy="160" r="52" fill="none" stroke="#21453D" stroke-width="2.5" class="reveal vn-chart-path" style="stroke-dasharray:327; stroke-dashoffset:327; transition-delay:0.15s;"></circle>
+          <circle cx="160" cy="160" r="76" fill="none" stroke="#21453D" stroke-width="2.5" class="reveal vn-chart-path" style="stroke-dasharray:478; stroke-dashoffset:478; transition-delay:0.3s;"></circle>
+          <circle cx="160" cy="160" r="100" fill="none" stroke="#21453D" stroke-width="2.5" class="reveal vn-chart-path" style="stroke-dasharray:629; stroke-dashoffset:629; transition-delay:0.45s;"></circle>
+          <circle cx="160" cy="160" r="124" fill="none" stroke="#21453D" stroke-width="2.5" class="reveal vn-chart-path" style="stroke-dasharray:779; stroke-dashoffset:779; transition-delay:0.6s;"></circle>
+          <circle cx="160" cy="160" r="148" fill="none" stroke="#21453D" stroke-width="2" stroke-dasharray="4 6" class="reveal vn-chart-path" style="stroke-dasharray:930; stroke-dashoffset:930; transition-delay:0.75s;"></circle>
+          <text x="160" y="164" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#21453D">CODE</text>
+        </svg>
+        <div style="display: flex; flex-direction: column; gap: 10px; min-width: 260px;">
+          <div class="vn-body"><span class="vn-stage-num" style="width:18px;height:18px;font-size:10px;">1</span> Code</div>
+          <div class="vn-body"><span class="vn-stage-num" style="width:18px;height:18px;font-size:10px;">2</span> + Build, Deploy</div>
+          <div class="vn-body"><span class="vn-stage-num" style="width:18px;height:18px;font-size:10px;">3</span> + Infrastructure</div>
+          <div class="vn-body"><span class="vn-stage-num" style="width:18px;height:18px;font-size:10px;">4</span> + Observability, Incidents</div>
+          <div class="vn-body"><span class="vn-stage-num" style="width:18px;height:18px;font-size:10px;">5</span> + Cost, Security, Multi-region</div>
+          <div class="vn-body"><span class="vn-stage-num" style="width:18px;height:18px;font-size:10px;">6</span> + Customers, Team, Technical direction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CAREER STATEMENT (simple, no extra motion) -->
+  <div class="vn-band reveal" style="background: #21453D;">
+    <div class="vn-wrap" style="padding: 72px 32px;">
+      <p class="vn-quote" style="margin: 0; color: #FBFAF6; max-width: 620px;">I started by writing software. Then I learned how to ship it. Then I learned how to run it. Then I learned how to keep it running. Now I help teams build, operate and improve the systems behind it.</p>
+    </div>
+  </div>
+
+  <!-- ============ OBSERVABILITY deep-dive ============ -->
+  <div class="vn-band reveal">
+    <div class="vn-wrap" style="padding: 52px 32px; display: flex; flex-direction: column; gap: 26px;">
+      <div>
+        <div class="vn-kicker" style="color: #21453D;">Three platforms, three stacks</div>
+        <h2 class="vn-h2">Observability, from scratch</h2>
+        <p class="vn-body" style="margin: 10px 0 0 0; max-width: 640px;">Every engagement started with the same blind spot — no reliable signal on what was actually happening in production. Here's the stack built for each, and what it changed.</p>
+      </div>
+
+      <!-- Kulu — Datadog + OTel -->
+      <div class="vn-chart-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+          <div>
+            <div class="vn-meta" style="color: #9FD9BE; margin-bottom: 4px;">Kulu · fintech payments platform</div>
+            <div style="font-family: 'Fraunces', Georgia, serif; font-size: 17px; color: #FBFAF6;">Datadog + OpenTelemetry</div>
+          </div>
+          <div>
+            <span class="vn-pill" style="background: rgba(255,255,255,0.08); color: #BFEAD6; border-color: rgba(255,255,255,0.15);">Alerts as Terraform code</span>
+            <span class="vn-pill" style="background: rgba(255,255,255,0.08); color: #BFEAD6; border-color: rgba(255,255,255,0.15);">Synthetic monitoring</span>
+          </div>
+        </div>
+        <p style="margin: 0 0 16px 0; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 14px; line-height: 1.7; color: #C9D6CE;">Built Datadog alerting and synthetic monitoring across AWS services from the ground up — alert rules defined and version-controlled as Terraform code — then layered OpenTelemetry-based log/trace correlation on top, closing a blind spot where 4xx/5xx and infrastructure alerts were silently failing to fire in production.</p>
+        <div style="display: flex; align-items: center; gap: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">
+          <span style="color: #E2685B;">● alerts silent</span>
+          <span style="color: #6FE3B4;">→</span>
+          <span class="vn-live-dot"></span>
+          <span style="color: #6FE3B4;">alerts firing, correlated to traces</span>
+        </div>
+      </div>
+
+      <!-- Neurowyzr — SigNoz + OTel -->
+      <div class="vn-chart-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+          <div>
+            <div class="vn-meta" style="color: #9FD9BE; margin-bottom: 4px;">Neurowyzr · healthcare SaaS, 4 regions</div>
+            <div style="font-family: 'Fraunces', Georgia, serif; font-size: 17px; color: #FBFAF6;">SigNoz + OpenTelemetry</div>
+          </div>
+          <span class="vn-meta" style="color: #6FE3B4;">alert-noise −30%</span>
+        </div>
+        <p style="margin: 0 0 14px 0; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 14px; line-height: 1.7; color: #C9D6CE;">Designed and built the observability stack from scratch as the sole embedded SRE, iteratively tuning alert thresholds against real production and deployment behaviour.</p>
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 12px;">
+          <span class="vn-pill" style="background: rgba(255,255,255,0.08); color: #BFEAD6; border-color: rgba(255,255,255,0.15);">60+ services</span>
+          <span style="color: #6FE3B4;">→</span>
+          <span class="vn-pill" style="background: rgba(255,255,255,0.08); color: #BFEAD6; border-color: rgba(255,255,255,0.15);">OTel SDK + Collector</span>
+          <span style="color: #6FE3B4;">→</span>
+          <span class="vn-pill" style="background: rgba(255,255,255,0.08); color: #BFEAD6; border-color: rgba(255,255,255,0.15);">SigNoz — traces · metrics · logs</span>
+          <span style="color: #6FE3B4;">→</span>
+          <span class="vn-pill" style="background: rgba(255,255,255,0.08); color: #BFEAD6; border-color: rgba(255,255,255,0.15);">tuned alert rules</span>
+          <span style="color: #6FE3B4;">→</span>
+          <span class="vn-pill" style="background: rgba(255,255,255,0.08); color: #BFEAD6; border-color: rgba(255,255,255,0.15);">SigNoz dashboards</span>
+        </div>
+        <div class="vn-meta" style="margin-top: 12px; color: #9FD9BE;">Thresholds tuned against real production and deployment behaviour cut alert noise ~30% and, alongside tighter release-readiness checks, cut deployment failure rate ~20%.</div>
+      </div>
+
+      <!-- Devtron — Victoria stack -->
+      <div class="vn-chart-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+          <div>
+            <div class="vn-meta" style="color: #9FD9BE; margin-bottom: 4px;">Devtron · enterprise CD/GitOps, 24 customers</div>
+            <div style="font-family: 'Fraunces', Georgia, serif; font-size: 17px; color: #FBFAF6;">Victoria Metrics + VictoriaLogs + Fluentbit + Prometheus</div>
+          </div>
+        </div>
+        <p style="margin: 0 0 16px 0; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 14px; line-height: 1.7; color: #C9D6CE;">Set up and operate the platform's monitoring and alerting stack across the full customer base — Prometheus-based alert rules feeding into Zenduty for on-call escalation across 8+ client accounts.</p>
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #9FD9BE;">
+          <span>metric</span><span style="color: #6FE3B4;">→</span><span>alert rule</span><span style="color: #6FE3B4;">→</span><span>Zenduty</span><span style="color: #6FE3B4;">→</span><span class="vn-live-dot"></span><span>on-call</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFRASTRUCTURE / K8s -->
+  <div class="vn-band reveal" style="background: #EDEFE4;">
+    <div class="vn-wrap" style="padding: 52px 32px; display: flex; flex-direction: column; gap: 20px;">
+      <div>
+        <div class="vn-kicker" style="color: #21453D;">Kubernetes · Terraform · ArgoCD · Karpenter</div>
+        <h2 class="vn-h2">Infrastructure at scale</h2>
+      </div>
+      <p class="vn-body" style="margin: 0; max-width: 640px;">Zero-downtime, multi-region migrations across EKS, GKE and AKS — parallel clusters, ArgoCD GitOps blue-green sync, and Route53 cutovers moving 60+ services with no customer-facing downtime.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; margin-top: 4px;">
+        <div class="vn-pods">
+          <div class="vn-pod" style="animation-delay: 0s;"></div><div class="vn-pod" style="animation-delay: 0.1s;"></div><div class="vn-pod" style="animation-delay: 0.2s;"></div><div class="vn-pod" style="animation-delay: 0.3s;"></div><div class="vn-pod" style="animation-delay: 0.4s;"></div><div class="vn-pod" style="animation-delay: 0.5s;"></div><div class="vn-pod" style="animation-delay: 0.6s;"></div><div class="vn-pod" style="animation-delay: 0.7s;"></div><div class="vn-pod" style="animation-delay: 0.8s;"></div><div class="vn-pod" style="animation-delay: 0.9s;"></div>
+          <div class="vn-pod" style="animation-delay: 0.15s;"></div><div class="vn-pod" style="animation-delay: 0.25s;"></div><div class="vn-pod" style="animation-delay: 0.35s;"></div><div class="vn-pod-warn" style="animation-delay: 0.45s;"></div><div class="vn-pod" style="animation-delay: 0.55s;"></div><div class="vn-pod" style="animation-delay: 0.65s;"></div><div class="vn-pod" style="animation-delay: 0.75s;"></div><div class="vn-pod" style="animation-delay: 0.85s;"></div><div class="vn-pod" style="animation-delay: 0.95s;"></div><div class="vn-pod" style="animation-delay: 1.05s;"></div>
+          <div class="vn-pod" style="animation-delay: 1.1s;"></div><div class="vn-pod" style="animation-delay: 0.3s;"></div><div class="vn-pod" style="animation-delay: 0.5s;"></div><div class="vn-pod" style="animation-delay: 0.7s;"></div><div class="vn-pod" style="animation-delay: 0.9s;"></div><div class="vn-pod" style="animation-delay: 1.1s;"></div><div class="vn-pod-warn" style="animation-delay: 1.3s;"></div><div class="vn-pod" style="animation-delay: 0.2s;"></div><div class="vn-pod" style="animation-delay: 0.4s;"></div><div class="vn-pod" style="animation-delay: 0.6s;"></div>
+          <div class="vn-pod" style="animation-delay: 0.8s;"></div><div class="vn-pod" style="animation-delay: 1.0s;"></div><div class="vn-pod" style="animation-delay: 1.2s;"></div><div class="vn-pod" style="animation-delay: 0.05s;"></div><div class="vn-pod" style="animation-delay: 0.25s;"></div><div class="vn-pod" style="animation-delay: 0.45s;"></div><div class="vn-pod" style="animation-delay: 0.65s;"></div><div class="vn-pod" style="animation-delay: 0.85s;"></div><div class="vn-pod" style="animation-delay: 1.05s;"></div><div class="vn-pod" style="animation-delay: 1.25s;"></div>
+        </div>
+        <div class="vn-meta">40 tracked services · 4 regions · <span style="color: #3FA67A;">38 healthy</span> · <span style="color: #C99A3E;">2 rolling update</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="vn-band reveal">
+    <div class="vn-wrap" style="padding: 56px 32px; display: flex; flex-direction: column; gap: 28px;">
+      <div>
+        <div class="vn-kicker" style="color: #21453D;">What I work with</div>
+        <h2 class="vn-h2">Skills &amp; toolchain</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 40px;">
+        <div>
+          <div class="vn-icon-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21453D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 .5-7.97A5.5 5.5 0 0 0 7.1 9.5 4 4 0 0 0 7 18Z"></path></svg>
+            <span class="vn-meta" style="font-weight: 500;">Cloud Platforms</span>
+          </div>
+          <div><span class="vn-pill vn-pill-teal">AWS</span><span class="vn-pill vn-pill-teal">GCP</span><span class="vn-pill vn-pill-teal">Azure (AKS)</span><span class="vn-pill vn-pill-teal">Viettel IDC</span></div>
+        </div>
+        <div>
+          <div class="vn-icon-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21453D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3Z"></path><path d="M4 7.5 12 12l8-4.5"></path><path d="M12 12v9"></path></svg>
+            <span class="vn-meta" style="font-weight: 500;">Container Orchestration &amp; GitOps</span>
+          </div>
+          <div><span class="vn-pill vn-pill-teal">Kubernetes</span><span class="vn-pill vn-pill-teal">Docker</span><span class="vn-pill vn-pill-teal">Helm</span><span class="vn-pill vn-pill-teal">Karpenter</span><span class="vn-pill vn-pill-teal">ArgoCD</span></div>
+        </div>
+        <div>
+          <div class="vn-icon-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21453D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9a4 4 0 0 1 4 4v0"></path><path d="M15 8l2-2-2-2"></path><path d="M20 17h-9a4 4 0 0 1-4-4v0"></path><path d="M9 16l-2 2 2 2"></path></svg>
+            <span class="vn-meta" style="font-weight: 500;">CI/CD</span>
+          </div>
+          <div><span class="vn-pill vn-pill-sand">Jenkins</span><span class="vn-pill vn-pill-sand">GitHub Actions</span><span class="vn-pill vn-pill-sand">AWS CodePipeline</span></div>
+        </div>
+        <div>
+          <div class="vn-icon-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21453D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 3 12l5 6"></path><path d="M16 6l5 6-5 6"></path></svg>
+            <span class="vn-meta" style="font-weight: 500;">IaC &amp; Scripting</span>
+          </div>
+          <div><span class="vn-pill vn-pill-sand">Terraform</span><span class="vn-pill vn-pill-sand">Bash</span><span class="vn-pill vn-pill-sand">Python</span></div>
+        </div>
+        <div>
+          <div class="vn-icon-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21453D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M12 20V4"></path><path d="M20 20v-7"></path></svg>
+            <span class="vn-meta" style="font-weight: 500;">Observability &amp; Monitoring</span>
+          </div>
+          <div><span class="vn-pill vn-pill-clay">SigNoz</span><span class="vn-pill vn-pill-clay">OpenTelemetry</span><span class="vn-pill vn-pill-clay">Datadog</span><span class="vn-pill vn-pill-clay">Prometheus</span><span class="vn-pill vn-pill-clay">Grafana</span><span class="vn-pill vn-pill-clay">Victoria Metrics</span><span class="vn-pill vn-pill-clay">VictoriaLogs</span><span class="vn-pill vn-pill-clay">Fluentbit</span></div>
+        </div>
+        <div>
+          <div class="vn-icon-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21453D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16v-4a6 6 0 0 1 12 0v4l1.5 2h-15L6 16Z"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg>
+            <span class="vn-meta" style="font-weight: 500;">Incident &amp; On-Call</span>
+          </div>
+          <div><span class="vn-pill vn-pill-clay">PagerDuty</span><span class="vn-pill vn-pill-clay">Zenduty</span><span class="vn-pill vn-pill-clay">Calmo (AI RCA)</span><span class="vn-pill vn-pill-clay">Zoho</span></div>
+        </div>
+        <div>
+          <div class="vn-icon-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21453D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"></path></svg>
+            <span class="vn-meta" style="font-weight: 500;">Security &amp; Identity</span>
+          </div>
+          <div><span class="vn-pill vn-pill-teal">HashiCorp Vault</span><span class="vn-pill vn-pill-teal">K8s Secrets</span><span class="vn-pill vn-pill-teal">Keycloak</span><span class="vn-pill vn-pill-teal">IAM / IRSA</span><span class="vn-pill vn-pill-teal">SSO / RBAC</span><span class="vn-pill vn-pill-teal">Secrets Manager</span></div>
+        </div>
+        <div>
+          <div class="vn-icon-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21453D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="2.5"></ellipse><path d="M5 5v14c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5"></path><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"></path></svg>
+            <span class="vn-meta" style="font-weight: 500;">Databases &amp; Messaging</span>
+          </div>
+          <div><span class="vn-pill vn-pill-sand">PostgreSQL</span><span class="vn-pill vn-pill-sand">MongoDB</span><span class="vn-pill vn-pill-sand">MySQL</span><span class="vn-pill vn-pill-sand">RabbitMQ</span><span class="vn-pill vn-pill-sand">Redis / ElastiCache</span></div>
+        </div>
+        <div>
+          <div class="vn-icon-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21453D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="M8.5 12.5l2.3 2.3 4.7-5.1"></path></svg>
+            <span class="vn-meta" style="font-weight: 500;">Code Quality &amp; SCM</span>
+          </div>
+          <div><span class="vn-pill vn-pill-clay">SonarQube</span><span class="vn-pill vn-pill-clay">GitHub</span><span class="vn-pill vn-pill-clay">GitLab</span><span class="vn-pill vn-pill-clay">Bitbucket</span></div>
+        </div>
+        <div>
+          <div class="vn-icon-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21453D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"></path><circle cx="17.5" cy="9" r="2.3"></circle><path d="M15.8 12.2c2.3.3 4.2 2 4.2 4.6"></path></svg>
+            <span class="vn-meta" style="font-weight: 500;">Collaboration</span>
+          </div>
+          <div><span class="vn-pill vn-pill-teal">Jira</span><span class="vn-pill vn-pill-teal">Confluence</span><span class="vn-pill vn-pill-teal">Agile</span><span class="vn-pill vn-pill-teal">Scrum</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CORE COMPETENCIES -->
+  <div class="vn-band reveal" style="background: #EDEFE4;">
+    <div class="vn-wrap" style="padding: 56px 32px; display: flex; flex-direction: column; gap: 22px;">
+      <h2 class="vn-h2">Core Competencies</h2>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 40px;">
+        <ul class="vn-list">
+          <li>Team Leadership &amp; Mentorship</li>
+          <li>Customer Success &amp; Technical Account Management</li>
+          <li>Site Reliability &amp; Incident Management</li>
+          <li>Cloud Cost Optimization (FinOps)</li>
+          <li>Multi‑Cloud &amp; Multi‑Region Infrastructure Ownership</li>
+        </ul>
+        <ul class="vn-list">
+          <li>Zero‑Downtime Migrations &amp; Platform Modernization</li>
+          <li>Observability &amp; Monitoring Strategy</li>
+          <li>Security, Compliance &amp; Regulatory Alignment</li>
+          <li>GitOps &amp; CI/CD Process Design</li>
+          <li>Cross‑functional Collaboration &amp; Product Influence</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="vn-band reveal">
+    <div class="vn-wrap" style="padding: 56px 32px; display: flex; flex-direction: column; gap: 22px;">
+      <h2 class="vn-h2">Education</h2>
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <div>
+          <div class="vn-role" style="font-size: 17px;">Bachelor's Degree in Technology, Computer Science</div>
+          <div class="vn-meta" style="margin-top: 3px;">Mar Baselios College of Engineering and Technology, Trivandrum &nbsp;·&nbsp; 2015 – 2019</div>
+        </div>
+        <div>
+          <div class="vn-role" style="font-size: 17px;">Higher Secondary School</div>
+          <div class="vn-meta" style="margin-top: 3px;">Army Public School, Trivandrum &nbsp;·&nbsp; 2013 – 2015</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="vn-band" style="background: #21453D;">
+    <div class="vn-wrap reveal" style="padding: 64px 32px 88px 32px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span class="vn-live-dot"></span>
+        <span class="vn-meta" style="color: #BFE0D4;">status: available for new opportunities</span>
+      </div>
+      <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 26px; color: #FBFAF6;">Let's build something that doesn't page anyone at 3am.</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 22px;">
+        <a href="mailto:vaishaktnair@gmail.com" style="text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #F6F3EC;">vaishaktnair@gmail.com</a>
+        <a href="tel:+919847281873" style="text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #DCEDE5;">+91 98472 81873</a>
+        <a href="https://linkedin.com/in/vaishak-t-nair-56278b222" style="text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #DCEDE5;">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+(function () {
+  var state = {};
+  function animateCount(el) {
+    const final = parseFloat(el.getAttribute('data-final'));
+    const suffix = el.getAttribute('data-suffix') || '';
+    const duration = 1000;
+    const start = performance.now();
+    const step = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = Math.round(final * eased);
+      el.textContent = val + suffix;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = final + suffix;
+    };
+    requestAnimationFrame(step);
+  
+  }
+  function animateBar(el) {
+    const w = el.getAttribute('data-w');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => { el.style.width = w + '%'; });
+    });
+  
+  }
+  function init() {
+    const revealIo = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealIo.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => revealIo.observe(el));
+    state.revealIo = revealIo;
+
+    const metricIo = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target.hasAttribute('data-final')) animateCount(entry.target);
+          if (entry.target.hasAttribute('data-w')) animateBar(entry.target);
+          metricIo.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('[data-final], [data-w]').forEach((el) => metricIo.observe(el));
+    state.metricIo = metricIo;
+
+    const stageEls = Array.from(document.querySelectorAll('[data-stage-track]'));
+    const dash = {
+      years: document.querySelector('[data-dash="years"]'),
+      role: document.querySelector('[data-dash="role"]'),
+      services: document.querySelector('[data-dash="services"]'),
+      regions: document.querySelector('[data-dash="regions"]'),
+      ownership: document.querySelector('[data-dash="ownership"]'),
+      team: document.querySelector('[data-dash="team"]'),
+      customers: document.querySelector('[data-dash="customers"]')
+    };
+    const updateDash = (el) => {
+      if (!el) return;
+      stageEls.forEach((s) => s.classList.remove('is-active'));
+      el.classList.add('is-active');
+      if (dash.years) dash.years.textContent = el.getAttribute('data-years') || '';
+      if (dash.role) dash.role.textContent = el.getAttribute('data-role') || '';
+      if (dash.services) dash.services.textContent = el.getAttribute('data-services') || '';
+      if (dash.regions) dash.regions.textContent = el.getAttribute('data-regions') || '';
+      if (dash.ownership) dash.ownership.textContent = el.getAttribute('data-ownership') || '';
+      if (dash.team) dash.team.textContent = el.getAttribute('data-team') || '';
+      if (dash.customers) dash.customers.textContent = el.getAttribute('data-customers') || '';
+    };
+    const stageIo = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) updateDash(entry.target);
+      });
+    }, { threshold: 0, rootMargin: '-35% 0px -55% 0px' });
+    stageEls.forEach((el) => stageIo.observe(el));
+    state.stageIo = stageIo;
+  
+  }
+  document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
+</body>
+</html>
